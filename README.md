@@ -28,7 +28,7 @@ Además de estas carpetas principales, también se incluyen:
 
 ## Instalación
 
-1. Clona este repositorio: `git clone https://github.com/tu-usuario/tu-proyecto.git`
+1. Clona este repositorio: `git clone https://github.com/franpossa1/CleanArchitectureReactTS.git`
 2. Instala las dependencias: `npm install`
 
 ## Uso
