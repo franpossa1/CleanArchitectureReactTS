@@ -1,14 +1,17 @@
-import './App.css'
-import { Container, Button } from '@mui/material'
+
+
+import { BrowserRouter } from 'react-router-dom'
+
+import { AppRouter } from './Router'
 
 function App() {
- //const [count, setCount] = useState(0)
 
-  return (
-     <Container maxWidth = "xl">
-<Button variant="contained">Hello</Button>
-     </Container>
-  )
+
+   return (
+      <BrowserRouter>
+         <AppRouter></AppRouter>
+      </BrowserRouter>
+   )
 }
 
 export default App
