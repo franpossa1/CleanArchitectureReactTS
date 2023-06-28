@@ -34,6 +34,20 @@ const theme = createTheme({
                     borderRadius : "0.5em"
                 }
             }
+        },
+        MuiAlert :{
+           defaultProps:{
+            style :{
+                borderRadius:"0.8em",
+                fontSize:"1em",
+            }
+           },
+           styleOverrides : {
+            standardError : {
+                border :`1px solid ${themePalette.error_main}`,
+                background :themePalette.bg_error_main,
+            } 
+           }
         }
     }
 })
