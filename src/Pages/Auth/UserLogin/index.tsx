@@ -1,8 +1,12 @@
 import { Container, Button, Grid, Paper, Box, Typography, TextField } from "@mui/material"
 import React from "react"
 import { LoginModel } from "../../../Core/Models/LoginModel"
+import { useNotification } from "../../../context/notification.context";
+import { LoginValidate } from "../../../Infrastructure/Utils/validateForm";
 
 export const UserLogin: React.FC<{}> = () => {
+
+    const { getError, getSuccess } = useNotification();
     //Login State handle of form
     const [LoginData, setLoginData] = React.useState<LoginModel>({
         password: "", user: ""
@@ -15,6 +19,12 @@ export const UserLogin: React.FC<{}> = () => {
     const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault();
         console.log(LoginData);
+        LoginValidate.validate(LoginData).then(() => {
+
+        }).catch((error) => {
+            getError(error.message);
+        });
+        getSuccess(JSON.stringify(LoginData));
     }
     return (
         <Container maxWidth="xl">
@@ -27,9 +37,9 @@ export const UserLogin: React.FC<{}> = () => {
                         <Typography variant="h4">Iniciar Sesion</Typography>
                         <Box component={"form"} onSubmit={handleSubmit}>
                             {/*Forms to sign in the form. name needs to be the same as the property of the TS Model */}
-                            <TextField onChange={dataLogin} required margin="normal" type="email" name="user"
+                            <TextField onChange={dataLogin} margin="normal" type="text" name="user"
                                 fullWidth label="Correo" sx={{ mt: 2, mb: 1.5 }} />
-                            <TextField type="password" onChange={dataLogin} required margin="normal" label="Contraseña" name="password"
+                            <TextField type="password" onChange={dataLogin} margin="normal" label="Contraseña" name="password"
                                 fullWidth sx={{ mt: 1.5, mb: 1.5 }} />
 
 

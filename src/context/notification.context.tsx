@@ -5,6 +5,7 @@ import { AlertColor } from "@mui/material";
 // Definición del tipo de propiedades del contexto
 type ContextProps = {
     getError: (msg: string) => void; // Función para obtener un error
+    getSuccess: (msg: string) => void // Función para devolver un success
 }
 
 // Creación del contexto de notificación
@@ -31,8 +32,15 @@ export const NotificationProvider: React.FC<{ children: JSX.Element }> = ({ chil
         setMsg(msg); // Establece el mensaje de la notificación
     }
 
+    // Función para dar un resultado exitoso
+    const getSuccess = (msg: string) => {
+        setSeverity("success"); // Establece la gravedad de la notificación como "error"
+        setOpen(true); // Abre la notificación
+        setMsg(msg); // Establece el mensaje de la notificación
+    }
+
     // Objeto de valor para el contexto
-    const value = { getError };
+    const value = { getError, getSuccess };
 
     return (
         <NotificationContext.Provider value={value}>

@@ -46,8 +46,13 @@ const theme = createTheme({
             standardError : {
                 border :`1px solid ${themePalette.error_main}`,
                 background :themePalette.bg_error_main,
-            } 
-           }
+            } ,
+            standardSuccess :{
+                border :`1px solid ${themePalette.success_main}}`,
+                background :themePalette.bg_success_main,
+            }
+           },
+        
         }
     }
 })
